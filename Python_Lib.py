@@ -3,40 +3,47 @@
 
 # In[1]:
 
-
-# Importing required libraries
+# load libraries
 import numpy as np
-import tensorflow as tf
+import pandas as pd
+
+# for visualization 
 import matplotlib.pyplot as plt
-import imageio
-import cv2
-import os
-import glob
-import pathlib
+import seaborn as sns
+%matplotlib inline
 
-# TensorFlow and Keras modules
-from tensorflow import keras
-from tensorflow.keras import layers, Sequential
-from tensorflow.keras.utils import image_dataset_from_directory
-from tensorflow.keras.utils import plot_model
-from tensorflow.keras.layers import Dense, Dropout, BatchNormalization, Activation, Flatten, Conv2D, Conv2DTranspose
+# Set option to display max 100 columns & 100 rows
+pd.set_option('display.max_rows', 100)
+pd.set_option('display.max_columns', 100)
 
-# Brief explanation for each library or module
-# NumPy: Numerical computing library for efficient array operations
-# TensorFlow: Machine learning framework
-# Matplotlib: Plotting library for data visualization
-# ImageIO: Library for reading and writing images
-# OpenCV: Computer vision library for image and video processing
-# OS: Operating system interaction, used for file operations
-# Glob: File path pattern matching
-# Pathlib: Object-oriented file system paths
+# for train -test split
+import sklearn
+from sklearn.model_selection import train_test_split
 
-# TensorFlow and Keras modules
-# - Sequential: Model composition tool for linear stack of layers
-# - layers: Core layers for building neural network models
-# - image_dataset_from_directory: Utility function for creating a dataset from image files in a directory
-# - plot_model: Function to create a plot of a Keras model
-# - Dense, Dropout, BatchNormalization, Activation, Flatten, Conv2D, Conv2DTranspose: Specific layers used in neural network architecture
+# for feature scaling (MinMax Scaler)
+from sklearn.preprocessing import MinMaxScaler
+
+# For Standardisation & Scaling
+from sklearn.preprocessing import StandardScaler
+
+# For building logistic regression model
+import statsmodels.api as sm
+from sklearn.linear_model import LogisticRegression
+
+# Import RFE used in feature elimination
+from sklearn.feature_selection import RFE
+
+# Check for the VIF values of the feature variables. 
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+# model evaluation
+from sklearn.metrics import r2_score
+
+# compute accuracy scores & Confusion matrix
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import precision_score, recall_score
+from sklearn.metrics import precision_recall_curve
 
 
 # In[ ]:
